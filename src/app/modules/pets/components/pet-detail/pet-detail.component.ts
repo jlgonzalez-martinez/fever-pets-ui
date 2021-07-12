@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Pet} from "@app/modules/pets/models/pet.model";
+import {Router, ActivatedRoute} from "@angular/router";
+import {PetService} from "@app/modules/pets/services/pet.service";
 
 @Component({
   selector: 'app-pet-detail',
@@ -7,11 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetDetailComponent implements OnInit {
 
-  constructor() {
-    console.log('aaaaa')
+  pet: Pet = undefined;
+
+  constructor(private readonly petService: PetService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.loadPet(params['id'], params['providerName'])
+    });
   }
 
+  loadPet(petId: string, providerName: string): void {
+      this.petService.getPet(providerName, petId).subscribe(pet => this.pet = pet);
+  }
 }
