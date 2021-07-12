@@ -7,7 +7,7 @@
         <div class="col-sm">  Length (cm) </div>
         <div class="col-sm">  Kind </div>
     </div>
-    <div *ngFor="let pet of pets" class="row">
+    <div *ngFor="let pet of pets" (click)="goToDetail(pet.provider, pet.id)" class="row">
         <div class="col-sm align-self-baseline">  <img src="{{ pet.photoUrl }}" class="img-thumbnail img-small" alt=""></div>
         <div class="col-sm align-self-baseline"> {{pet.name}} </div>
         <div class="col-sm align-self-baseline">  {{pet.weight}} </div>

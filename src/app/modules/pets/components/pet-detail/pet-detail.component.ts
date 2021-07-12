@@ -13,7 +13,8 @@ export class PetDetailComponent implements OnInit {
   pet: Pet = undefined;
 
   constructor(private readonly petService: PetService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,7 +23,11 @@ export class PetDetailComponent implements OnInit {
     });
   }
 
-  loadPet(petId: string, providerName: string): void {
+  loadPet(providerName: string, petId: string): void {
       this.petService.getPet(providerName, petId).subscribe(pet => this.pet = pet);
+  }
+
+  goToList() {
+    this.router.navigateByUrl('pets')
   }
 }
