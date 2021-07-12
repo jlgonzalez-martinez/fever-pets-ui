@@ -12,6 +12,7 @@ export class Pet {
         public length: number,
         public description: number,
         public photoUrl: string,
+        public kind: string,
         public numberOfLives: number
     ) {
     }
@@ -21,6 +22,7 @@ export class Pet {
 export class PetAdapter implements Adapter<Pet> {
 
     adapt(apiPet: any): Pet {
+        console.log(apiPet);
         return new Pet(
             apiPet.id,
             apiPet.provider,
@@ -30,6 +32,7 @@ export class PetAdapter implements Adapter<Pet> {
             apiPet.length,
             apiPet.description,
             apiPet.photo_url,
+            apiPet.kind ? apiPet.kind : undefined,
             apiPet.number_of_lives ? apiPet.number_of_lives: undefined
         );
     }
