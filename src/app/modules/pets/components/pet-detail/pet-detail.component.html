@@ -1,2 +1,34 @@
-<p>pet-detail works!</p>
-<p> {{pet ? pet.name : 'not load'}} </p>
+<div class="container">
+    <div class="row pb-5">
+        <div class="col-sm"> Go to pets list </div>
+    </div>
+    <div class="row">
+        <div class="col-sm"> <img src="{{ pet.photoUrl }}" class="img-thumbnail img-large" alt=""> </div>
+        <div class="col-sm">
+            <div class="row pb-1">
+                <div class="col-sm"> Name:</div>
+                <div class="col-sm"> {{pet.name}} </div>
+            </div>
+            <div class="row pb-1">
+                <div class="col-sm"> Description:</div>
+                <div class="col-sm"> {{pet.description}} </div>
+            </div>
+            <div class="row pb-1">
+                <div class="col-sm"> Weight (kg):</div>
+                <div class="col-sm"> {{pet.weight}} </div>
+            </div>
+            <div class="row pb-1">
+                <div class="col-sm"> Length (cm):</div>
+                <div class="col-sm"> {{pet.length}} </div>
+            </div>
+            <div class="row pb-1">
+                <div class="col-sm"> Height (cm):</div>
+                <div class="col-sm"> {{pet.height}} </div>
+            </div>
+            <div class="row pb-1">
+                <div class="col-sm"> Kind:</div>
+                <div class="col-sm"> {{pet.kind}} </div>
+            </div>
+        </div>
+    </div>
+</div>
