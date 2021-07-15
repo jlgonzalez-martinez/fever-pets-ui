@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { PetDetailComponent } from './components/pet-detail/pet-detail.component';
 import { PetListComponent } from './components/pet-list/pet-list.component';
 import {PetRoutingModule} from "@app/modules/pets/pets.route";
+import {PetAdapter} from "@app/modules/pets/models/pet.model";
 
 @NgModule({
     declarations: [
@@ -15,6 +16,9 @@ import {PetRoutingModule} from "@app/modules/pets/pets.route";
         PetRoutingModule,
         CommonModule,
         RouterModule,
+    ],
+    providers: [
+        PetAdapter
     ]
 })
 export class PetsModule { }
