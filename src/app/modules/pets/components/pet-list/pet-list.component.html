@@ -1,8 +1,20 @@
-<p>pet-list works!</p>
-<ul>
-    <li *ngFor="let pet of pets">
-        {{pet.name}}
-    </li>
-</ul>
+<div class="container">
+    <div class="row pb-4 header">
+        <div class="col-sm">  Photo </div>
+        <div class="col-sm">  Name </div>
+        <div class="col-sm">  Weight (kg) </div>
+        <div class="col-sm">  Height (cm) </div>
+        <div class="col-sm">  Length (cm) </div>
+        <div class="col-sm">  Kind </div>
+    </div>
+    <div *ngFor="let pet of pets" class="row">
+        <div class="col-sm align-self-baseline">  <img src="{{ pet.photoUrl }}" class="img-thumbnail img-small" alt=""></div>
+        <div class="col-sm align-self-baseline"> {{pet.name}} </div>
+        <div class="col-sm align-self-baseline">  {{pet.weight}} </div>
+        <div class="col-sm align-self-baseline">  {{pet.height}} </div>
+        <div class="col-sm align-self-baseline">  {{pet.length}} </div>
+        <div class="col-sm align-self-baseline">  {{ pet.kind }} </div>
+    </div>
 <app-pagination [page]="page" [disablePrev]="isPrevDisabled()" [disableNext]="isNextDisabled()"
                 (pageEvent)="reloadPets($event)"></app-pagination>
+</div>
