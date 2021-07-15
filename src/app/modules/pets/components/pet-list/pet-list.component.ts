@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Pet} from "@app/modules/pets/models/pet.model";
 import {PetService} from "@app/modules/pets/services/pet.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pet-list',
@@ -15,7 +16,8 @@ export class PetListComponent implements OnInit {
   disablePrev: boolean = true;
   disableNext: boolean = false;
 
-  constructor(private readonly petService: PetService) {
+  constructor(private readonly petService: PetService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -35,4 +37,7 @@ export class PetListComponent implements OnInit {
     return this.pets.length < 10;
   }
 
+  goToDetail(petId: number, providerName: string) {
+    this.router.navigateByUrl(`pets/${providerName}/${petId}`);
+  }
 }

@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row pb-5">
-        <div class="col-sm"> Go to pets list </div>
+        <div class="col-sm"> <span class="btn-link" (click)="goToList()"> Go to pets list </span></div>
     </div>
-    <div class="row">
+    <div *ngIf="pet" class="row">
         <div class="col-sm"> <img src="{{ pet.photoUrl }}" class="img-thumbnail img-large" alt=""> </div>
         <div class="col-sm">
             <div class="row pb-1">
@@ -30,5 +30,8 @@
                 <div class="col-sm"> {{pet.kind}} </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="pet === undefined">
+        Loading pet information...
     </div>
 </div>
