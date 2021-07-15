@@ -4,3 +4,5 @@
         {{pet.name}}
     </li>
 </ul>
+<app-pagination [page]="page" [disablePrev]="isPrevDisabled()" [disableNext]="isNextDisabled()"
+                (pageEvent)="reloadPets($event)"></app-pagination>

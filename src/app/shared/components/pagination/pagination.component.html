@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <button class="button" [disabled]="disablePrev" (click)="changePage(false)">Previous</button>
+        </div>
+        <div class="col-sm"><span class="text-center"> {{ page }} </span></div>
+        <div class="col-sm">
+            <button [disabled]="disableNext" class="button" (click)="changePage(true)">Next</button>
+        </div>
+    </div>
+</div>

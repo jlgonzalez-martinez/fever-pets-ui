@@ -6,6 +6,7 @@ import { PetListComponent } from './components/pet-list/pet-list.component';
 import {PetRoutingModule} from "@app/modules/pets/pets.route";
 import {PetAdapter} from "@app/modules/pets/models/pet.model";
 import {PetService} from "@app/modules/pets/services/pet.service";
+import {SharedModule} from "@app/shared/shared.module";
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import {PetService} from "@app/modules/pets/services/pet.service";
         PetRoutingModule,
         CommonModule,
         RouterModule,
+        SharedModule
     ],
     providers: [
         PetAdapter,

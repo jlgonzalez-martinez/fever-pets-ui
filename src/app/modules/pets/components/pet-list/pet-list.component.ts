@@ -12,6 +12,8 @@ export class PetListComponent implements OnInit {
   pets: Pet[] = [];
   page: number = 1;
   maxResults: number = 10;
+  disablePrev: boolean = true;
+  disableNext: boolean = false;
 
   constructor(private readonly petService: PetService) {
   }
@@ -20,7 +22,17 @@ export class PetListComponent implements OnInit {
     this.reloadPets()
   }
 
-  reloadPets(): void {
+  reloadPets(pet_page: number = undefined): void {
+    this.page = pet_page ? pet_page: this.page;
     this.petService.getPets(this.page, this.maxResults).subscribe(pets => this.pets = pets);
   }
+
+  isPrevDisabled() {
+    return this.page == 1;
+  }
+
+  isNextDisabled() {
+    return this.pets.length < 10;
+  }
+
 }
